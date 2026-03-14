@@ -11,13 +11,25 @@ main{
 }
 
 .light{
-  background: white;
-  color: #000;
-  transition: all 0.5s;
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.12) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(236, 72, 153, 0.12) 0px, transparent 50%);
+  color: #1e293b;
+  min-height: 100vh;
+  transition: all 0.5s ease;
 }
 
 .dark{
-  background: #15202b;
-  color: white;
-  transition: all 0.5s;
+  background-color: #0f172a;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(236, 72, 153, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+  color: #f8fafc;
+  min-height: 100vh;
+  transition: all 0.5s ease;
 }

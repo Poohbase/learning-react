@@ -1,23 +1,223 @@
-.container{
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #d7d7d7;
-    border-radius: 5px;
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap');
+
+.person-list-container {
+  font-family: 'Prompt', sans-serif;
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08), 
+              inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+  opacity: 0.8;
+
 }
-.header{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 10px;
+
+.person-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f1f5f9;
 }
-li{
-    list-style-type: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    margin: 20px 5px;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 20px;
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-group h2 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin: 0;
+  font-weight: 600;
+}
+
+.badge {
+  background: #eff6ff;
+  color: #3b82f6;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.toggle-btn {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background: #f1f5f9;
+  color: #0f172a;
+  transform: scale(1.05);
+}
+
+.toggle-btn.active {
+  color: #3b82f6;
+  border-color: #bfdbfe;
+  background: #eff6ff;
+}
+
+.list-wrapper {
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.list-wrapper.open {
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.list-wrapper.closed {
+  max-height: 0;
+  opacity: 0;
+}
+
+.user-list {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.user-card {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 18px 20px;
+  border-radius: 16px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+}
+
+.user-card.male::before {
+  background: #3b82f6;
+}
+
+.user-card.female::before {
+  background: #ec4899;
+}
+
+.user-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-color: #e2e8f0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.avatar-wrapper {
+  background: #f8fafc;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-name {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.gender-badge {
+  font-size: 0.85rem;
+  color: #64748b;
+  display: inline-block;
+}
+
+.user-card.male .gender-badge {
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.user-card.female .gender-badge {
+  color: #ec4899;
+  font-weight: 500;
+}
+
+.delete-btn {
+  background: #fee2e2;
+  color: #ef4444;
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.8;
+  font-size: 1rem;
+}
+
+.delete-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+  opacity: 1;
+  transform: scale(1.1) rotate(6deg);
+  box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px dashed #cbd5e1;
 }
